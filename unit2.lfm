@@ -1,0 +1,131 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 238
+  HorizontalOffset = 1063
+  VerticalOffset = 138
+  Width = 394
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    ClientCodepage = 'UTF8'
+    Properties.Strings = (
+      'RawStringEncoding=DB_CP'
+      'codepage=UTF8'
+    )
+    BeforeConnect = ZConnection1BeforeConnect
+    DisableSavepoints = False
+    Port = 0
+    User = 'SYSDBA'
+    Password = 'masterkey'
+    Protocol = 'firebird'
+    Left = 37
+    Top = 25
+  end
+  object ZTransaction1: TZTransaction
+    Connection = ZConnection1
+    AutoCommit = True
+    Left = 120
+    Top = 25
+  end
+  object ZQuery1: TZQuery
+    Connection = ZConnection1
+    Transaction = ZTransaction1
+    SQL.Strings = (
+      'SELECT * FROM "OS_Medicao";'
+    )
+    Params = <>
+    Left = 211
+    Top = 25
+  end
+  object TB_OS_Medicao: TZTable
+    Connection = ZConnection1
+    Transaction = ZTransaction1
+    TableName = '"OS_Medicao"'
+    Left = 296
+    Top = 25
+  end
+  object CSV_OS_Medicao: TCSVDataset
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = '﻿Escritório Local'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Status'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Número'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Medição'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Descrição do Serviço'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Data Limite Atendimento'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Data de Execução'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Em dia'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Matricula'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Responsável'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Resultado'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Ocorrência'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    CSVOptions.FirstLineAsFieldNames = True
+    CSVOptions.DefaultFieldLength = 255
+    CSVOptions.Delimiter = ';'
+    CSVOptions.QuoteChar = '"'
+    CSVOptions.LineEnding = #13#10
+    CSVOptions.IgnoreOuterWhitespace = False
+    CSVOptions.QuoteOuterWhitespace = True
+    Left = 296
+    Top = 112
+  end
+end
